@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اچ‌پنل | HPanel</title>
+  <style>
+    :root {
+      --bg: #0b0a09;
+      --text: #fff6ea;
+      --muted: #c3b09a;
+      --line: rgba(255, 186, 92, .22);
+      --gold: #ffb43a;
+      --mint: #3ee39a;
+      --ink: #140f0a;
+      --shadow: 0 28px 70px rgba(0,0,0,.55);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh;
+      font-family: Tahoma, "Vazirmatn", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 88% -10%, rgba(255,180,58,.18), transparent 32%),
+        radial-gradient(circle at 8% 12%, rgba(62,227,154,.10), transparent 28%),
+        linear-gradient(180deg, #120e0b, #070605);
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+    .logo {
+      font-weight: 900;
+      letter-spacing: .04em;
+      font-size: 22px;
+    }
+    .logo span { color: var(--gold); }
+    nav { display: flex; gap: 18px; color: var(--muted); font-size: 14px; }
+    .hero {
+      padding: 72px 0 36px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.15;
+    }
+    .hero p {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.9;
+    }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      border: 0;
+      cursor: pointer;
+      font-weight: 800;
+      border-radius: 16px;
+      padding: 13px 18px;
+      font-size: 15px;
+      box-shadow: 0 6px 0 rgba(0,0,0,.35);
+      display: inline-block;
+    }
+    .btn-gold { background: linear-gradient(180deg, #ffd27a, #ff9d1f); color: var(--ink); }
+    .btn-mint { background: linear-gradient(180deg, #6af3b8, #17c77a); color: #042016; }
+    .btn-ghost { background: rgba(255,255,255,.06); color: var(--text); border: 1px solid var(--line); box-shadow: none; }
+    .panel {
+      padding: 22px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(165deg, rgba(255,180,58,.12), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+    }
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(62,227,154,.14);
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .panel h2 { margin: 0 0 8px; font-size: 26px; }
+    .panel p { margin: 0 0 18px; color: var(--muted); line-height: 1.8; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat {
+      padding: 12px 10px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.28);
+      text-align: center;
+    }
+    .stat b { display: block; font-size: 20px; color: var(--gold); }
+    .stat span { color: var(--muted); font-size: 12px; }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding: 10px 0 70px;
+    }
+    .feat {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+    }
+    .feat h3 { margin: 0 0 8px; }
+    .feat p { margin: 0; color: var(--muted); line-height: 1.8; font-size: 14px; }
+    footer {
+      padding: 24px 0 40px;
+      color: #7a6b5a;
+      font-size: 12px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    @media (max-width: 860px) {
+      .hero, .features, .stats { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">HP<span>anel</span></div>
+      <nav>
+        <a href="#home">خانه</a>
+        <a href="#server">سرور رایگان</a>
+        <a href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div>
+        <h1>تونل بازی، بدون دردسر</h1>
+        <p>
+          اچ‌پنل پنل کنترل سرورهای لس‌آنجلس کرایمز است.
+          مثل پلی‌ایت، سریع وصل شو و سرور را روشن کن.
+        </p>
+        <div class="cta">
+          <a class="btn btn-gold" href="https://herculepanel.github.io/Dashboard/">ورود به داشبورد</a>
+          <a class="btn btn-ghost" href="#server">سرور رایگان LAC</a>
+        </div>
+      </div>
+
+      <div class="panel" id="server">
+        <div class="tag">رایگان</div>
+        <h2>سرور لس‌آنجلس کرایمز</h2>
+        <p>
+          چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مرورگر.
+          برای شروع وارد داشبورد شو.
+        </p>
+        <div class="stats">
+          <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
+          <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
+          <div class="stat"><b>۲۴/۷</b><span>تا پایان رانر</span></div>
+        </div>
+        <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">
+          رفتن به کنترل‌پنل
+        </a>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feat">
+        <h3>بدون پورت‌فوروارد</h3>
+        <p>اتصال از طریق تونل انجام می‌شود. لازم نیست روتر را دست بزنی.</p>
+      </div>
+      <div class="feat">
+        <h3>انتخاب نقشه</h3>
+        <p>قبل از روشن شدن سرور، یکی از نقشه‌های رسمی بازی را انتخاب می‌کنی.</p>
+      </div>
+      <div class="feat">
+        <h3>کنترل از مرورگر</h3>
+        <p>روشن، خاموش و وضعیت سرورها داخل داشبورد اچ‌پنل است.</p>
+      </div>
+    </section>
+  </div>
+  <footer>HerculePanel © 2026</footer>
+</body>
+</html>
