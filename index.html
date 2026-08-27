@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>اچ‌پنل | HPanel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0b0a09;
@@ -19,7 +22,7 @@
     html, body { margin: 0; }
     body {
       min-height: 100vh;
-      font-family: Tahoma, "Vazirmatn", system-ui, sans-serif;
+      font-family: Lalezar, Tahoma, sans-serif;
       color: var(--text);
       background:
         radial-gradient(circle at 88% -10%, rgba(255,180,58,.18), transparent 32%),
@@ -34,13 +37,9 @@
       align-items: center;
       padding: 18px 0;
     }
-    .logo {
-      font-weight: 900;
-      letter-spacing: .04em;
-      font-size: 22px;
-    }
+    .logo { font-weight: 900; letter-spacing: .04em; font-size: 26px; }
     .logo span { color: var(--gold); }
-    nav { display: flex; gap: 18px; color: var(--muted); font-size: 14px; }
+    nav { display: flex; gap: 18px; color: var(--muted); font-size: 18px; }
     .hero {
       padding: 72px 0 36px;
       display: grid;
@@ -56,17 +55,17 @@
     .hero p {
       margin: 0 0 26px;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.9;
     }
     .cta { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn {
       border: 0;
       cursor: pointer;
-      font-weight: 800;
       border-radius: 16px;
       padding: 13px 18px;
-      font-size: 15px;
+      font-size: 18px;
+      font-family: inherit;
       box-shadow: 0 6px 0 rgba(0,0,0,.35);
       display: inline-block;
     }
@@ -87,11 +86,10 @@
       border-radius: 999px;
       background: rgba(62,227,154,.14);
       color: var(--mint);
-      font-size: 12px;
-      font-weight: 800;
+      font-size: 14px;
     }
-    .panel h2 { margin: 0 0 8px; font-size: 26px; }
-    .panel p { margin: 0 0 18px; color: var(--muted); line-height: 1.8; }
+    .panel h2 { margin: 0 0 8px; font-size: 28px; }
+    .panel p { margin: 0 0 18px; color: var(--muted); line-height: 1.8; font-size: 18px; }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .stat {
       padding: 12px 10px;
@@ -99,8 +97,8 @@
       background: rgba(0,0,0,.28);
       text-align: center;
     }
-    .stat b { display: block; font-size: 20px; color: var(--gold); }
-    .stat span { color: var(--muted); font-size: 12px; }
+    .stat b { display: block; font-size: 22px; color: var(--gold); }
+    .stat span { color: var(--muted); font-size: 14px; }
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -113,12 +111,12 @@
       border: 1px solid var(--line);
       background: rgba(255,255,255,.035);
     }
-    .feat h3 { margin: 0 0 8px; }
-    .feat p { margin: 0; color: var(--muted); line-height: 1.8; font-size: 14px; }
+    .feat h3 { margin: 0 0 8px; font-size: 22px; }
+    .feat p { margin: 0; color: var(--muted); line-height: 1.8; font-size: 16px; }
     footer {
       padding: 24px 0 40px;
       color: #7a6b5a;
-      font-size: 12px;
+      font-size: 14px;
       text-align: center;
       border-top: 1px solid rgba(255,255,255,.06);
     }
@@ -143,18 +141,18 @@
       <div>
         <h1>تونل بازی، بدون دردسر</h1>
         <p>
-          اچ‌پنل پنل کنترل سرورهای لس‌آنجلس کرایمز است.
+          اچ‌پنل پنل کنترل سرورهای لک است.
           مثل پلی‌ایت، سریع وصل شو و سرور را روشن کن.
         </p>
         <div class="cta">
           <a class="btn btn-gold" href="https://herculepanel.github.io/Dashboard/">ورود به داشبورد</a>
-          <a class="btn btn-ghost" href="#server">سرور رایگان LAC</a>
+          <a class="btn btn-ghost" href="#server">سرور رایگان لک</a>
         </div>
       </div>
 
       <div class="panel" id="server">
         <div class="tag">رایگان</div>
-        <h2>سرور لس‌آنجلس کرایمز</h2>
+        <h2>سرور لک</h2>
         <p>
           چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مرورگر.
           برای شروع وارد داشبورد شو.
@@ -162,7 +160,7 @@
         <div class="stats">
           <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
           <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
-          <div class="stat"><b>۲۴/۷</b><span>تا پایان رانر</span></div>
+          <div class="stat"><b>۵</b><span>تا پایان رانر</span></div>
         </div>
         <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">
           رفتن به کنترل‌پنل
@@ -187,4 +185,4 @@
   </div>
   <footer>HerculePanel © 2026</footer>
 </body>
-</html>
+        </html>
