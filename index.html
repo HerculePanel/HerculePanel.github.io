@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اچ‌پنل | HPanel</title>
+  <title>HPanel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
@@ -19,171 +19,470 @@
       --shadow: 0 28px 70px rgba(0,0,0,.55);
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; }
     body {
+      margin: 0;
       min-height: 100vh;
       font-family: Lalezar, Tahoma, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 88% -10%, rgba(255,180,58,.18), transparent 32%),
-        radial-gradient(circle at 8% 12%, rgba(62,227,154,.10), transparent 28%),
+        radial-gradient(circle at 12% 0%, rgba(255,180,58,.18), transparent 32%),
+        radial-gradient(circle at 92% 18%, rgba(62,227,154,.10), transparent 28%),
         linear-gradient(180deg, #120e0b, #070605);
     }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1120px, calc(100% - 32px)); margin: auto; }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
+    .gold { color: var(--gold); }
+    .login-modal, .map-modal, .fm-modal {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(8,6,4,.78); backdrop-filter: blur(16px);
+      opacity: 1; visibility: visible;
+      transition: opacity .35s ease, visibility .35s ease;
     }
-    .logo { font-weight: 900; letter-spacing: .04em; font-size: 26px; }
-    .logo span { color: var(--gold); }
-    nav { display: flex; gap: 18px; color: var(--muted); font-size: 18px; }
-    .hero {
-      padding: 72px 0 36px;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 28px;
-      align-items: center;
+    .login-modal.hidden, .map-modal.hidden, .fm-modal.hidden {
+      opacity: 0; visibility: hidden; pointer-events: none;
     }
-    .hero h1 {
-      margin: 0 0 14px;
-      font-size: clamp(34px, 6vw, 64px);
-      line-height: 1.15;
-    }
-    .hero p {
-      margin: 0 0 26px;
-      color: var(--muted);
-      font-size: 20px;
-      line-height: 1.9;
-    }
-    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn {
-      border: 0;
-      cursor: pointer;
-      border-radius: 16px;
-      padding: 13px 18px;
-      font-size: 18px;
-      font-family: inherit;
-      box-shadow: 0 6px 0 rgba(0,0,0,.35);
-      display: inline-block;
-    }
-    .btn-gold { background: linear-gradient(180deg, #ffd27a, #ff9d1f); color: var(--ink); }
-    .btn-mint { background: linear-gradient(180deg, #6af3b8, #17c77a); color: #042016; }
-    .btn-ghost { background: rgba(255,255,255,.06); color: var(--text); border: 1px solid var(--line); box-shadow: none; }
-    .panel {
-      padding: 22px;
-      border-radius: 28px;
+    .card-box {
+      width: min(520px, calc(100% - 32px));
+      padding: 30px 26px; border-radius: 28px;
       border: 1px solid var(--line);
       background: linear-gradient(165deg, rgba(255,180,58,.12), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow); text-align: center;
     }
-    .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(62,227,154,.14);
-      color: var(--mint);
-      font-size: 14px;
+    .fm-box { width: min(860px, calc(100% - 28px)); text-align: right; max-height: 86vh; overflow: auto; }
+    h1, h2 { margin: 0 0 8px; }
+    .sub { margin: 0 0 16px; color: var(--muted); font-size: 16px; }
+    input, select, textarea {
+      width: 100%; padding: 13px 14px; border-radius: 14px;
+      border: 1px solid var(--line); background: rgba(0,0,0,.38);
+      color: var(--text); margin-bottom: 12px; outline: none;
+      font-family: inherit; font-size: 16px;
     }
-    .panel h2 { margin: 0 0 8px; font-size: 28px; }
-    .panel p { margin: 0 0 18px; color: var(--muted); line-height: 1.8; font-size: 18px; }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .stat {
-      padding: 12px 10px;
-      border-radius: 14px;
-      background: rgba(0,0,0,.28);
-      text-align: center;
+    textarea { min-height: 280px; font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+    .btn {
+      border: 0; cursor: pointer; border-radius: 16px; padding: 12px 14px;
+      font-family: inherit; font-size: 17px;
+      box-shadow: 0 6px 0 rgba(0,0,0,.35);
     }
-    .stat b { display: block; font-size: 22px; color: var(--gold); }
-    .stat span { color: var(--muted); font-size: 14px; }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      padding: 10px 0 70px;
+    .btn:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,.35); }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-gold { background: linear-gradient(180deg, #ffd27a, #ff9d1f); color: var(--ink); }
+    .btn-mint { background: linear-gradient(180deg, #6af3b8, #17c77a); color: #042016; }
+    .btn-rose { background: linear-gradient(180deg, #ff8a97, #e23b4d); color: #fff; }
+    .btn-home { background: linear-gradient(180deg, #8ab0ff, #4d7dff); color: #061018; }
+    .btn-ghost { background: rgba(255,255,255,.06); color: var(--text); border: 1px solid var(--line); box-shadow: none; }
+    .spin {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2px solid rgba(20,15,10,.25); border-top-color: var(--ink);
+      display: inline-block; margin-left: 8px; vertical-align: -3px;
+      animation: spin .7s linear infinite;
     }
-    .feat {
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .app {
+      width: min(1160px, calc(100% - 30px));
+      margin: auto; padding: 36px 0 80px;
+      opacity: 0; transform: translateY(12px); pointer-events: none; transition: .35s ease;
     }
-    .feat h3 { margin: 0 0 8px; font-size: 22px; }
-    .feat p { margin: 0; color: var(--muted); line-height: 1.8; font-size: 16px; }
-    footer {
-      padding: 24px 0 40px;
-      color: #7a6b5a;
-      font-size: 14px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,.06);
+    .app.visible { opacity: 1; transform: none; pointer-events: auto; }
+    .hero { display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .brand { font-size: clamp(30px, 6vw, 48px); }
+    .hero-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .tab {
+      padding: 9px 13px; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.04); color: var(--muted); cursor: pointer;
     }
-    footer span { color: var(--gold); }
-    @media (max-width: 860px) {
-      .hero, .features, .stats { grid-template-columns: 1fr; }
-      nav { display: none; }
+    .tab.on { color: var(--text); background: rgba(255,180,58,.14); border-color: rgba(255,180,58,.4); }
+    .view { display: none; }
+    .view.on { display: block; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .server { padding: 18px; border-radius: 24px; border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+    .server.on { border-color: rgba(62,227,154,.5); background: linear-gradient(160deg, rgba(62,227,154,.16), rgba(255,180,58,.04)); }
+    .name { font-size: 24px; }
+    .bits { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+    .bit { padding: 10px; border-radius: 12px; background: rgba(0,0,0,.28); font-size: 15px; word-break: break-word; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .row .btn { flex: 1; min-width: 90px; }
+    .panel { padding: 16px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+    .fm-item { padding: 8px 10px; border-radius: 10px; cursor: pointer; }
+    .fm-item:hover { background: rgba(255,255,255,.06); }
+    .toast-box { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); width: min(420px, calc(100% - 28px)); z-index: 2000; }
+    .toast {
+      margin-top: 8px; padding: 12px 14px; border-radius: 14px;
+      border: 1px solid var(--line); background: rgba(18,14,10,.94);
+      animation: toastIn .25s ease;
     }
+    .toast.out { animation: toastOut .28s ease forwards; }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes toastOut { to { opacity: 0; transform: translateY(12px); } }
+    .ok { color: #9dffc9; } .err { color: #ffb0b7; } .info { color: #ffd27a; }
+    .foot { margin-top: 28px; text-align: center; color: #7a6b5a; font-size: 14px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo"><span>HP</span>anel</div>
-      <nav>
-        <a href="#home">خانه</a>
-        <a href="#server">سرور رایگان</a>
-        <a href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
-      </nav>
-    </header>
-
-    <section class="hero" id="home">
-      <div>
-        <h1>تونل بازی، بدون دردسر</h1>
-        <p>
-          اچ‌پنل پنل کنترل سرورهای لک است.
-          مثل لیمی‌هاست، سریع وصل شو و سرور را روشن کن.
-        </p>
-        <div class="cta">
-          <a class="btn btn-gold" href="https://herculepanel.github.io/Dashboard/">ورود به داشبورد</a>
-          <a class="btn btn-ghost" href="#server">سرور رایگان لک</a>
-        </div>
-      </div>
-
-      <div class="panel" id="server">
-        <div class="tag">رایگان</div>
-        <h2>سرور لک</h2>
-        <p>
-          چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مرورگر.
-          برای شروع وارد داشبورد شو.
-        </p>
-        <div class="stats">
-          <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
-          <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
-          <div class="stat"><b>۵</b><span>ساعت تا پایان رانر</span></div>
-        </div>
-        <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">
-          رفتن به کنترل‌پنل
-        </a>
-      </div>
-    </section>
-
-    <section class="features">
-      <div class="feat">
-        <h3>بدون پورت‌فوروارد</h3>
-        <p>اتصال از طریق تونل انجام می‌شود. لازم نیست روتر را دست بزنی.</p>
-      </div>
-      <div class="feat">
-        <h3>انتخاب نقشه</h3>
-        <p>قبل از روشن شدن سرور، یکی از نقشه‌های رسمی بازی را انتخاب می‌کنی.</p>
-      </div>
-      <div class="feat">
-        <h3>کنترل از مرورگر</h3>
-        <p>روشن، خاموش و وضعیت سرورها داخل داشبورد اچ‌پنل است.</p>
-      </div>
-    </section>
+  <div id="loginModal" class="login-modal">
+    <div class="card-box">
+      <h1><span class="gold">HP</span>anel</h1>
+      <p class="sub">توکن گیت‌هاب را وارد کن</p>
+      <input id="tokenInput" type="password" placeholder="github_pat_...">
+      <button id="loginBtn" class="btn btn-gold" style="width:100%" onclick="connectGitHub()">ورود</button>
+    </div>
   </div>
-  <footer><span>H</span>ercule<span>P</span>anel © 2026</footer>
+
+  <div id="mapModal" class="map-modal hidden">
+    <div class="card-box">
+      <h2>انتخاب نقشه</h2>
+      <p class="sub" id="mapSlotText">نقشه رسمی این سرور</p>
+      <select id="mapSelect"></select>
+      <button class="btn btn-mint" style="width:100%" onclick="confirmStart()">روشن کردن سرور</button>
+      <button class="btn btn-ghost" style="width:100%;margin-top:8px" onclick="closeMapModal()">لغو</button>
+    </div>
+  </div>
+
+  <div id="fmModal" class="fm-modal hidden">
+    <div class="card-box fm-box">
+      <h2 id="fmTitle">فایل‌های سرور</h2>
+      <p class="sub">فقط مشاهده فایل‌های رانر موقت</p>
+      <div id="fmList"></div>
+      <textarea id="fmEditor" readonly placeholder="یک فایل را انتخاب کن"></textarea>
+      <button class="btn btn-ghost" style="width:100%" onclick="closeFm()">بستن</button>
+    </div>
+  </div>
+
+  <div class="app" id="app">
+    <div class="hero">
+      <div>
+        <div class="brand"><span class="gold">HP</span>anel</div>
+        <p class="sub" style="margin:6px 0 0">کنترل سرورهای لک</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-home" href="https://herculepanel.github.io/">برگشت به صفحه نخست</a>
+        <button class="btn btn-ghost" onclick="refreshDashboard()">تازه‌سازی</button>
+        <button class="btn btn-rose" onclick="logout()">خروج</button>
+      </div>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab on" data-view="servers" onclick="switchView('servers')">سرورها</button>
+      <button class="tab admin-only" data-view="gist" onclick="switchView('gist')" style="display:none">گیست</button>
+      <button class="tab admin-only" data-view="flows" onclick="switchView('flows')" style="display:none">ورک‌فلوها</button>
+    </div>
+
+    <div id="view-servers" class="view on">
+      <div id="servers" class="grid"></div>
+    </div>
+    <div id="view-gist" class="view">
+      <div class="panel">
+        <h2>ویرایش servers.json</h2>
+        <textarea id="gistEditor"></textarea>
+        <button class="btn btn-gold" onclick="saveGist()">ذخیره گیست</button>
+      </div>
+    </div>
+    <div id="view-flows" class="view">
+      <div class="panel">
+        <h2>همه ورک‌فلوها</h2>
+        <button class="btn btn-ghost" onclick="loadWorkflows()">بارگذاری</button>
+        <div id="flowList" style="margin-top:12px"></div>
+      </div>
+    </div>
+
+    <div class="foot"><span class="gold">H</span>ercule<span class="gold">P</span>anel © 2026</div>
+  </div>
+  <div class="toast-box" id="toasts"></div>
+
+<script>
+const CONFIG = {
+  owner: "HerculePanel",
+  repo: "Dashboard",
+  workflow: "main.yml",
+  gistId: "cb2aaaece7a231ec707429d41e1457f4",
+  gistFile: "servers.json",
+  branch: "main",
+  api: "https://api.github.com",
+  home: "https://herculepanel.github.io/",
+  limitMs: (5 * 60 + 45) * 60 * 1000,
+  maps: ["City","Garage","RagdollParty","TrainFacility","ZombieSurvival","NewTerrainRamps","Island","CarSoccer"]
+};
+const TOKEN_KEY = "hpanel_github_token";
+const ADMIN_KEY = "hpanel_is_admin";
+const ADMIN_SUFFIX = "_thisisadmin";
+let githubToken = "";
+let isAdmin = false;
+let serversData = null;
+let pendingSlot = null;
+let runtimeCache = {};
+let tickTimer = null;
+
+function toast(msg, type) {
+  const el = document.createElement("div");
+  el.className = "toast " + (type === "error" ? "err" : type === "success" ? "ok" : "info");
+  el.textContent = msg;
+  document.getElementById("toasts").appendChild(el);
+  setTimeout(() => {
+    el.classList.add("out");
+    setTimeout(() => el.remove(), 280);
+  }, 3200);
+}
+function saveSession(token, admin) {
+  localStorage.setItem(TOKEN_KEY, token);
+  localStorage.setItem(ADMIN_KEY, admin ? "1" : "0");
+  document.cookie = "github_token=" + encodeURIComponent(token) + "; path=/; max-age=" + (30*24*60*60) + "; SameSite=Lax";
+}
+function loadToken() {
+  return localStorage.getItem(TOKEN_KEY) || "";
+}
+function clearSession() {
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(ADMIN_KEY);
+  document.cookie = "github_token=; path=/; max-age=0; SameSite=Lax";
+}
+function showApp() {
+  document.getElementById("loginModal").classList.add("hidden");
+  document.getElementById("app").classList.add("visible");
+  document.querySelectorAll(".admin-only").forEach(el => {
+    el.style.display = isAdmin ? "" : "none";
+  });
+}
+function hideApp() {
+  document.getElementById("app").classList.remove("visible");
+  document.getElementById("loginModal").classList.remove("hidden");
+}
+async function api(path, options) {
+  options = options || {};
+  const headers = Object.assign({
+    "Accept": "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28"
+  }, options.headers || {});
+  if (githubToken) headers.Authorization = "Bearer " + githubToken;
+  return fetch(CONFIG.api + path, Object.assign({}, options, { headers }));
+}
+function esc(s) {
+  return String(s ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+}
+function statusFa(status) {
+  if (status === "online") return "آنلاین";
+  if (status === "starting") return "در حال روشن شدن";
+  return "خاموش";
+}
+function parseLogin(raw) {
+  const value = (raw || "").trim();
+  if (value.endsWith(ADMIN_SUFFIX)) {
+    return { token: value.slice(0, -ADMIN_SUFFIX.length), admin: true };
+  }
+  return { token: value, admin: false };
+}
+function setLoginLoading(on) {
+  const btn = document.getElementById("loginBtn");
+  btn.disabled = on;
+  btn.innerHTML = on ? 'ورود<span class="spin"></span>' : "ورود";
+}
+async function connectGitHub() {
+  const parsed = parseLogin(document.getElementById("tokenInput").value || loadToken());
+  if (!parsed.token) return toast("توکن را وارد کن", "error");
+  setLoginLoading(true);
+  githubToken = parsed.token;
+  isAdmin = parsed.admin;
+  try {
+    const r = await api("/repos/" + CONFIG.owner + "/" + CONFIG.repo);
+    if (!r.ok) throw new Error("دسترسی به ریپو نشد (" + r.status + ")");
+    const g = await api("/gists/" + CONFIG.gistId);
+    if (!g.ok) throw new Error("دسترسی به گیست نشد (" + g.status + ")");
+    saveSession(parsed.token, parsed.admin);
+    showApp();
+    toast(isAdmin ? "ورود ادمین" : "وارد شدی", "success");
+    refreshDashboard();
+    if (!tickTimer) tickTimer = setInterval(refreshDashboard, 10000);
+  } catch (e) {
+    githubToken = "";
+    isAdmin = false;
+    hideApp();
+    toast(e.message || "ورود ناموفق", "error");
+  } finally {
+    setLoginLoading(false);
+  }
+}
+function logout() {
+  clearSession();
+  githubToken = "";
+  isAdmin = false;
+  document.getElementById("tokenInput").value = "";
+  hideApp();
+  switchView("servers");
+  toast("خارج شدی", "info");
+}
+function switchView(name) {
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("on"));
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("on", t.getAttribute("data-view") === name));
+  document.getElementById("view-" + name).classList.add("on");
+  if (name === "gist") loadGistEditor();
+  if (name === "flows") loadWorkflows();
+}
+async function gistJson() {
+  const res = await api("/gists/" + CONFIG.gistId);
+  if (!res.ok) throw new Error("خواندن گیست ناموفق");
+  return res.json();
+}
+async function gistFileContent(filename) {
+  const data = await gistJson();
+  const file = data.files && data.files[filename];
+  if (!file) return null;
+  if (file.truncated && file.raw_url) return await (await fetch(file.raw_url)).text();
+  return file.content || "";
+}
+async function loadServers() {
+  const content = await gistFileContent(CONFIG.gistFile);
+  if (!content) throw new Error("servers.json نیست");
+  return JSON.parse(content);
+}
+function remainText(startedAt) {
+  if (!startedAt) return "—";
+  const end = new Date(startedAt).getTime() + CONFIG.limitMs;
+  const left = end - Date.now();
+  if (left <= 0) return "پایان زمان";
+  const s = Math.floor(left / 1000);
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  return String(h).padStart(2,"0") + ":" + String(m).padStart(2,"0") + ":" + String(sec).padStart(2,"0");
+}
+function renderServers(data) {
+  serversData = data;
+  const root = document.getElementById("servers");
+  root.innerHTML = "";
+  [...data.servers].sort((a,b) => a.slot - b.slot).forEach(server => {
+    const status = String(server.status || "offline").toLowerCase();
+    const running = status === "online" || status === "starting";
+    const card = document.createElement("div");
+    card.className = "server" + (status === "online" ? " on" : "");
+    card.innerHTML =
+      '<div class="name">سرور ' + esc(server.slot) + '</div>' +
+      '<div class="sub">' + esc(statusFa(status)) + (server.map ? " · " + esc(server.map) : "") + '</div>' +
+      '<div class="bits">' +
+        '<div class="bit">آدرس<br>' + esc(server.endpoint || "—") + '</div>' +
+        '<div class="bit">آی‌پی<br>' + esc(server.ip || "—") + '</div>' +
+        '<div class="bit">پورت<br>' + esc(server.port || "—") + '</div>' +
+        '<div class="bit">باقی‌مانده<br>' + esc(remainText(server.started_at)) + '</div>' +
+      '</div>' +
+      '<div class="row">' +
+        '<button class="btn btn-mint"' + (status !== "offline" ? " disabled" : "") + ' onclick="openMapModal(' + Number(server.slot) + ')">روشن</button>' +
+        '<button class="btn btn-rose"' + (status === "offline" ? " disabled" : "") + ' onclick="stopServer(' + Number(server.slot) + ')">خاموش</button>' +
+        '<button class="btn btn-ghost"' + (running ? "" : " disabled") + ' onclick="openFiles(' + Number(server.slot) + ')">فایل‌ها</button>' +
+      '</div>';
+    root.appendChild(card);
+  });
+}
+async function refreshDashboard() {
+  if (!githubToken) return;
+  try { renderServers(await loadServers()); }
+  catch (e) { toast(e.message || "تازه‌سازی ناموفق", "error"); }
+}
+function openMapModal(slot) {
+  pendingSlot = slot;
+  document.getElementById("mapSlotText").textContent = "نقشه رسمی سرور " + slot;
+  const select = document.getElementById("mapSelect");
+  select.innerHTML = CONFIG.maps.map(m => '<option value="' + m + '">' + m + '</option>').join("");
+  select.value = "TrainFacility";
+  document.getElementById("mapModal").classList.remove("hidden");
+}
+function closeMapModal() {
+  pendingSlot = null;
+  document.getElementById("mapModal").classList.add("hidden");
+}
+async function confirmStart() {
+  const slot = pendingSlot;
+  const map = document.getElementById("mapSelect").value;
+  if (!slot) return;
+  closeMapModal();
+  toast("سرور " + slot + " با نقشه " + map + " در صف است", "info");
+  const res = await api(
+    "/repos/" + CONFIG.owner + "/" + CONFIG.repo + "/actions/workflows/" + encodeURIComponent(CONFIG.workflow) + "/dispatches",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ref: CONFIG.branch, inputs: { mode: "start", slot: String(slot), map: map } })
+    }
+  );
+  if (!res.ok) return toast("روشن نشد (" + res.status + ")", "error");
+  toast("سرور " + slot + " در حال روشن شدن", "success");
+  setTimeout(refreshDashboard, 2500);
+}
+async function stopServer(slot) {
+  const server = serversData && serversData.servers && serversData.servers.find(s => Number(s.slot) === Number(slot));
+  if (!server || !server.run_id) return toast("شناسه اجرا نیست", "error");
+  if (!confirm("سرور " + slot + " خاموش شود؟")) return;
+  const res = await api("/repos/" + CONFIG.owner + "/" + CONFIG.repo + "/actions/runs/" + encodeURIComponent(server.run_id) + "/cancel", { method: "POST" });
+  if (!res.ok && res.status !== 409) return toast("خاموش نشد (" + res.status + ")", "error");
+  toast("درخواست خاموشی ارسال شد", "success");
+  setTimeout(refreshDashboard, 3000);
+}
+async function openFiles(slot) {
+  document.getElementById("fmTitle").textContent = "فایل‌های سرور " + slot;
+  document.getElementById("fmList").innerHTML = "در حال بارگذاری...";
+  document.getElementById("fmEditor").value = "";
+  document.getElementById("fmModal").classList.remove("hidden");
+  try {
+    const raw = await gistFileContent("runtime-" + slot + ".json");
+    if (!raw) {
+      document.getElementById("fmList").textContent = "هنوز اسنپ‌شاتی نیست. چند ثانیه بعد دوباره بزن.";
+      return;
+    }
+    const data = JSON.parse(raw);
+    runtimeCache = data.files || {};
+    const list = document.getElementById("fmList");
+    list.innerHTML = "";
+    Object.keys(runtimeCache).sort().forEach(path => {
+      const item = runtimeCache[path];
+      const div = document.createElement("div");
+      div.className = "fm-item";
+      div.textContent = (item && item.type === "dir" ? "📁 " : "📄 ") + path;
+      div.onclick = () => {
+        document.getElementById("fmEditor").value = item && item.body != null ? item.body : JSON.stringify(item, null, 2);
+      };
+      list.appendChild(div);
+    });
+  } catch (e) {
+    document.getElementById("fmList").textContent = e.message || "خطا";
+  }
+}
+function closeFm() { document.getElementById("fmModal").classList.add("hidden"); }
+
+async function loadGistEditor() {
+  try { document.getElementById("gistEditor").value = await gistFileContent(CONFIG.gistFile) || ""; }
+  catch (e) { toast(e.message, "error"); }
+}
+async function saveGist() {
+  const content = document.getElementById("gistEditor").value;
+  try { JSON.parse(content); } catch (_) { return toast("JSON نامعتبر است", "error"); }
+  const res = await api("/gists/" + CONFIG.gistId, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ files: { [CONFIG.gistFile]: { content } } })
+  });
+  if (!res.ok) return toast("ذخیره گیست ناموفق", "error");
+  toast("گیست ذخیره شد", "success");
+  refreshDashboard();
+}
+async function loadWorkflows() {
+  const box = document.getElementById("flowList");
+  box.textContent = "در حال بارگذاری...";
+  const res = await api("/repos/" + CONFIG.owner + "/" + CONFIG.repo + "/actions/runs?per_page=20");
+  if (!res.ok) { box.textContent = "خواندن ورک‌فلو ناموفق"; return; }
+  const data = await res.json();
+  box.innerHTML = (data.workflow_runs || []).map(run =>
+    '<div class="bit" style="margin-bottom:8px">' +
+      esc(run.name) + " · " + esc(run.status) + " / " + esc(run.conclusion || "—") +
+      "<br>#" + esc(run.id) + " · " + esc(run.html_url) +
+    "</div>"
+  ).join("") || "ورک‌فلویی نیست";
+}
+
+document.getElementById("tokenInput").addEventListener("keydown", e => { if (e.key === "Enter") connectGitHub(); });
+window.onload = function () {
+  const saved = loadToken();
+  if (saved) {
+    document.getElementById("tokenInput").value = saved + (localStorage.getItem(ADMIN_KEY) === "1" ? ADMIN_SUFFIX : "");
+    connectGitHub();
+  }
+};
+</script>
 </body>
-        </html>
+    </html>
