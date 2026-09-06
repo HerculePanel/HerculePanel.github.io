@@ -60,12 +60,8 @@
     }
     .cta { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn {
-      border: 0;
-      cursor: pointer;
-      border-radius: 16px;
-      padding: 13px 18px;
-      font-size: 18px;
-      font-family: inherit;
+      border: 0; cursor: pointer; border-radius: 16px; padding: 13px 18px;
+      font-size: 18px; font-family: inherit;
       box-shadow: 0 6px 0 rgba(0,0,0,.35);
       display: inline-block;
     }
@@ -135,6 +131,7 @@
         <a href="#home">خانه</a>
         <a href="#server">سرور رایگان</a>
         <a href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
+        <a href="#radio">رادیو</a>
       </nav>
     </header>
 
@@ -142,34 +139,17 @@
       <div>
         <h1>تونل بازی، بدون دردسر</h1>
         <p>
-          اچ‌پنل پنل کنترل سرورهای لک است.
-          مثل لیمی‌هاست، سریع وصل شو و سرور را روشن کن.
+          اچ‌پنل پنل کنترل سرورهای لک است. مثل لیمی‌هاست، سریع وصل شو و سرور را روشن کن.
         </p>
         <div class="cta">
           <a class="btn btn-gold" href="https://herculepanel.github.io/Dashboard/">ورود به داشبورد</a>
           <a class="btn btn-ghost" href="#server">سرور رایگان لک</a>
+          <a class="btn btn-ghost" href="#radio">رادیو لک</a>
         </div>
-      </div>
-
-      <div class="panel" id="server">
-        <div class="tag">رایگان</div>
-        <h2>سرور لک</h2>
-        <p>
-          چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مرورگر.
-          برای شروع وارد داشبورد شو.
-        </p>
-        <div class="stats">
-          <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
-          <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
-          <div class="stat"><b>۵</b><span>ساعت تا پایان رانر</span></div>
-        </div>
-        <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">
-          رفتن به کنترل‌پنل
-        </a>
       </div>
     </section>
 
-    <section class="features">
+    <section class="features" id="server">
       <div class="feat">
         <h3>بدون پورت‌فوروارد</h3>
         <p>اتصال از طریق تونل انجام می‌شود. لازم نیست روتر را دست بزنی.</p>
@@ -183,7 +163,41 @@
         <p>روشن، خاموش و وضعیت سرورها داخل داشبورد اچ‌پنل است.</p>
       </div>
     </section>
+
+    <!-- NEW RADIO SECTION -->
+    <section class="features" id="radio">
+      <div class="feat">
+        <h3>رادیو لک</h3>
+        <p>لینک‌های عمومی MP3 برای رادیوی ماشین در بازی. آهنگ‌ها را اضافه یا حذف کن و مستقیم در بازی پخش کن.</p>
+      </div>
+      <div class="feat">
+        <h3>آپلود سریع</h3>
+        <p>از مرورگر فایل MP3 آپلود کن یا لینک آماده بچسبان. فایل‌ها در ریپو ذخیره می‌شوند.</p>
+      </div>
+      <div class="feat">
+        <h3>همه چیز از یک جا</h3>
+        <p>داشبورد و رادیو در یک صفحه. لینک را کپی کن و در بازی استفاده کن.</p>
+      </div>
+    </section>
+
+    <div class="panel" id="server">
+      <div class="tag">رایگان</div>
+      <h2>سرور لک</h2>
+      <p>
+        چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مروربر.
+        برای شروع وارد داشبورد شو.
+      </p>
+      <div class="stats">
+        <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
+        <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
+        <div class="stat"><b>۵</b><span>ساعت تا پایان رانر</span></div>
+      </div>
+      <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">
+        رفتن به کنترل‌پنل
+      </a>
+    </div>
   </div>
+
   <footer><span>H</span>ercule<span>P</span>anel © 2026</footer>
 </body>
 </html>
