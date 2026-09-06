@@ -36,10 +36,21 @@
       justify-content: space-between;
       align-items: center;
       padding: 18px 0;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .logo { font-weight: 900; letter-spacing: .04em; font-size: 26px; }
     .logo span { color: var(--gold); }
-    nav { display: flex; gap: 18px; color: var(--muted); font-size: 18px; }
+    nav { display: flex; gap: 14px; color: var(--muted); font-size: 18px; flex-wrap: wrap; align-items: center; }
+    .badge {
+      display: none;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(62,227,154,.16);
+      color: var(--mint);
+      font-size: 14px;
+    }
+    .badge.on { display: inline-block; }
     .hero {
       padding: 72px 0 36px;
       display: grid;
@@ -47,17 +58,8 @@
       gap: 28px;
       align-items: center;
     }
-    .hero h1 {
-      margin: 0 0 14px;
-      font-size: clamp(34px, 6vw, 64px);
-      line-height: 1.15;
-    }
-    .hero p {
-      margin: 0 0 26px;
-      color: var(--muted);
-      font-size: 20px;
-      line-height: 1.9;
-    }
+    .hero h1 { margin: 0 0 14px; font-size: clamp(34px, 6vw, 64px); line-height: 1.15; }
+    .hero p { margin: 0 0 26px; color: var(--muted); font-size: 20px; line-height: 1.9; }
     .cta { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn {
       border: 0; cursor: pointer; border-radius: 16px; padding: 13px 18px;
@@ -76,30 +78,20 @@
       box-shadow: var(--shadow);
     }
     .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(62,227,154,.14);
-      color: var(--mint);
-      font-size: 14px;
+      display: inline-block; margin-bottom: 12px; padding: 6px 10px;
+      border-radius: 999px; background: rgba(62,227,154,.14); color: var(--mint); font-size: 14px;
     }
     .panel h2 { margin: 0 0 8px; font-size: 28px; }
     .panel p { margin: 0 0 18px; color: var(--muted); line-height: 1.8; font-size: 18px; }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .stat {
-      padding: 12px 10px;
-      border-radius: 14px;
-      background: rgba(0,0,0,.28);
-      text-align: center;
-    }
+    .stat { padding: 12px 10px; border-radius: 14px; background: rgba(0,0,0,.28); text-align: center; }
     .stat b { display: block; font-size: 22px; color: var(--gold); }
     .stat span { color: var(--muted); font-size: 14px; }
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      padding: 10px 0 70px;
+      padding: 28px 0 70px;
     }
     .feat {
       padding: 18px;
@@ -119,7 +111,6 @@
     footer span { color: var(--gold); }
     @media (max-width: 860px) {
       .hero, .features, .stats { grid-template-columns: 1fr; }
-      nav { display: none; }
     }
   </style>
 </head>
@@ -128,74 +119,78 @@
     <header>
       <div class="logo"><span>HP</span>anel</div>
       <nav>
+        <span id="verifyBadge" class="badge">تأیید شده</span>
         <a href="#home">خانه</a>
         <a href="#server">سرور رایگان</a>
-        <a href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
         <a href="#radio">رادیو</a>
+        <a href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
+        <a id="signInLink" href="https://herculepanel.github.io/vault/">ورود</a>
       </nav>
     </header>
 
     <section class="hero" id="home">
       <div>
         <h1>تونل بازی، بدون دردسر</h1>
-        <p>
-          اچ‌پنل پنل کنترل سرورهای لک است. مثل لیمی‌هاست، سریع وصل شو و سرور را روشن کن.
-        </p>
+        <p>اچ‌پنل پنل کنترل سرورهای لک است. اول وارد گاوصندوق شو تا داشبورد و رادیو خودشان باز شوند.</p>
         <div class="cta">
-          <a class="btn btn-gold" href="https://herculepanel.github.io/Dashboard/">ورود به داشبورد</a>
-          <a class="btn btn-ghost" href="#server">سرور رایگان لک</a>
-          <a class="btn btn-ghost" href="#radio">رادیو لک</a>
+          <a class="btn btn-gold" id="heroSign" href="https://herculepanel.github.io/vault/">ورود به گاوصندوق</a>
+          <a class="btn btn-ghost" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
+          <a class="btn btn-ghost" href="https://herculepanel.github.io/HPanelRadio/">رادیو لک</a>
         </div>
+      </div>
+      <div class="panel" id="server">
+        <div class="tag">رایگان</div>
+        <h2>سرور لک</h2>
+        <p>چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مرورگر. برای شروع وارد شو.</p>
+        <div class="stats">
+          <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
+          <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
+          <div class="stat"><b>۵</b><span>ساعت تا پایان رانر</span></div>
+        </div>
+        <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">رفتن به کنترل‌پنل</a>
       </div>
     </section>
 
-    <!-- RADIO SECTION -->
     <div class="panel" id="radio">
       <div class="tag">رایگان</div>
       <h2>رادیو لک</h2>
-      <p>
-        لینک‌های عمومی MP3 برای رادیوی ماشین در بازی. آهنگ‌ها را اضافه یا حذف کن و مستقیم در بازی پخش کن.
-      </p>
+      <p>لینک‌های عمومی MP3 برای رادیوی ماشین در بازی. آهنگ اضافه کن و لینک را در بازی بچسبان.</p>
       <div class="stats">
-        <div class="stat"><b>۵۰+</b><span>لینک آماده</span></div>
-        <div class="stat"><b>۱۰۰+</b><span>آهنگ پشتیبانی شده</span></div>
-        <div class="stat"><b>فوری</b><span>بدون دانلود</span></div>
+        <div class="stat"><b>MP3</b><span>آپلود در ریپو</span></div>
+        <div class="stat"><b>لینک</b><span>آماده برای بازی</span></div>
+        <div class="stat"><b>گیست</b><span>فهرست آهنگ‌ها</span></div>
       </div>
       <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/HPanelRadio/">رفتن به رادیو</a>
     </div>
 
     <section class="features">
       <div class="feat">
-        <h3>بدون پورت‌فوروارد</h3>
-        <p>اتصال از طریق تونل انجام می‌شود. لازم نیست روتر را دست بزنی.</p>
+        <h3>یک ورود</h3>
+        <p>با رمز گاوصندوق وارد شو. توکن داشبورد و رادیو ذخیره می‌شود.</p>
       </div>
       <div class="feat">
-        <h3>انتخاب نقشه</h3>
-        <p>قبل از روشن شدن سرور، یکی از نقشه‌های رسمی بازی را انتخاب می‌کنی.</p>
+        <h3>بدون پورت‌فوروارد</h3>
+        <p>اتصال سرور از طریق تونل است. روتر را دست نزن.</p>
       </div>
       <div class="feat">
         <h3>کنترل از مرورگر</h3>
-        <p>روشن، خاموش و وضعیت سرورها داخل داشبورد اچ‌پنل است.</p>
+        <p>سرور، نقشه و رادیو همه از همین سایت مدیریت می‌شوند.</p>
       </div>
     </section>
-
-    <div class="panel" id="server">
-      <div class="tag">رایگان</div>
-      <h2>سرور لک</h2>
-      <p>
-        چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مرورگر. برای شروع وارد داشبورد شو.
-      </p>
-      <div class="stats">
-        <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
-        <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
-        <div class="stat"><b>۵</b><span>ساعت تا پایان رانر</span></div>
-      </div>
-      <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">
-        رفتن به کنترل‌پنل
-      </a>
-    </div>
   </div>
-
   <footer><span>H</span>ercule<span>P</span>anel © 2026</footer>
+<script>
+(function () {
+  const ok = localStorage.getItem("hpanel_verified") === "1";
+  const badge = document.getElementById("verifyBadge");
+  const sign = document.getElementById("signInLink");
+  const hero = document.getElementById("heroSign");
+  if (ok) {
+    badge.classList.add("on");
+    sign.textContent = "گاوصندوق";
+    hero.textContent = "حساب تأیید شده";
+  }
+})();
+</script>
 </body>
-</html>
+        </html>
