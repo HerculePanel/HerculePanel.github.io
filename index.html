@@ -4,74 +4,921 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>اچ‌پنل | HPanel</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
 <style>
-:root{--bg:#0b0a09;--text:#fff6ea;--muted:#c3b09a;--line:rgba(255,186,92,.22);--gold:#ffb43a;--mint:#3ee39a;--ink:#140f0a}
-*{box-sizing:border-box}html,body{margin:0}body{min-height:100vh;font-family:Lalezar,Tahoma,sans-serif;color:var(--text);background:radial-gradient(circle at 88% -10%,rgba(255,180,58,.22),transparent 32%),radial-gradient(circle at 8% 12%,rgba(62,227,154,.14),transparent 28%),linear-gradient(180deg,#120e0b,#070605)}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px;flex-wrap:wrap}.logo{font-size:23px}.logo span,.gold{color:var(--gold)}nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted)}nav a{padding:6px 9px;border-radius:12px}nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}.hero{padding:55px 0 25px;display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center}.hero h1{font-size:clamp(34px,5vw,54px);margin:0 0 14px}.hero p{color:var(--muted);font-size:17px;line-height:1.8;margin:0 0 25px}.cta{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;cursor:pointer;border-radius:16px;padding:10px 15px;font:15px Lalezar;display:inline-block;box-shadow:0 6px 0 rgba(0,0,0,.35)}.goldbtn{background:linear-gradient(180deg,#ffd27a,#ff9d1f);color:var(--ink)}.mintbtn{background:linear-gradient(180deg,#6af3b8,#17c77a);color:#042016}.ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--line);box-shadow:none}.panel{padding:18px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,180,58,.065),rgba(255,255,255,.025));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 28px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.08)}.panel h2{margin:0 0 8px}.panel p{color:var(--muted);line-height:1.8;font-size:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:12px;border-radius:14px;background:rgba(0,0,0,.28);text-align:center}.stat b{display:block;font-size:22px;color:var(--gold)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 70px}.feat{padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.035)}.feat h3{margin:0 0 8px}.feat p{margin:0;color:var(--muted);line-height:1.8}.locked{display:none}.locked.show{display:block}.logged{display:none}.logged.show{display:inline-block}.authbox{display:none;margin:30px 0;padding:25px;text-align:center}.authbox.show{display:block}.authbox p{color:var(--muted);font-size:19px}.footer{padding:24px 0 40px;text-align:center;color:#7a6b5a;border-top:1px solid rgba(255,255,255,.06)}@media(max-width:850px){.hero,.features{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
-.update{display:inline-flex;gap:6px;margin-bottom:10px;color:var(--gold);font-size:18px}.update b{color:var(--gold)}button,a,.panel,.feat,.stat{transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .5s ease,border-color .5s ease,box-shadow .5s ease,background .5s ease} .btn:hover,a:hover{transform:translateY(-3px)} .hero,.panel,.feat,.stat{animation:softIn .7s cubic-bezier(.22,1,.36,1) both}@keyframes softIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}</style>
-</head>
-<body>
-<div class="wrap">
-<header>
-<div class="logo"><span class="gold">H</span>ercule<span class="gold">P</span>anel</div>
-<nav>
-<a href="#home">خانه</a>
-<a id="dashLink" class="locked" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
-<a id="radioLink" class="locked" href="https://herculepanel.github.io/HPanelRadio/">رادیو</a>
-<a id="vaultLink" href="https://herculepanel.github.io/vault/">گاوصندوق</a>
-<span id="loginState" class="logged"></span>
-</nav>
-</header>
-<section class="hero" id="home">
-<div>
-<div class="update"><span>آپدیت جدید: </span><b>v1.3</b></div><h1>تونل بازی، بدون دردسر</h1>
-<p id="intro">برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.</p>
-<div class="cta">
-<a id="vaultButton" class="btn goldbtn" href="https://herculepanel.github.io/vault/">ورود به گاوصندوق</a>
-<a id="dashButton" class="btn ghost locked" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
-<a id="radioButton" class="btn ghost locked" href="https://herculepanel.github.io/HPanelRadio/">رادیو</a>
-</div>
-</div>
-<div class="panel">
-<h2><span class="gold">H</span>Panel</h2>
-<p>پنل شخصی مدیریت سرور و رادیوی L.A. Crimes.</p>
-<div class="stats"><div class="stat"><b>۴</b><span>اسلات سرور</span></div><div class="stat"><b>۹</b><span>نقشه</span></div><div class="stat"><b>۱</b><span>ورود مشترک</span></div></div>
-</div>
-</section>
-<div id="lockedBox" class="panel authbox show">
-<h2>ورود لازم است</h2>
-<p>برای باز شدن HPanel Dashboard و HPanel Radio ابتدا وارد Vault شوید.</p>
-<a class="btn goldbtn" href="https://herculepanel.github.io/vault/">رفتن به Vault</a>
-</div>
-<div id="welcomeBox" class="panel authbox">
-<h2>خوش آمدید</h2>
-<p id="welcomeText"></p>
-<a class="btn mintbtn" href="https://herculepanel.github.io/Dashboard/">باز کردن Dashboard</a>
-<a class="btn ghost" href="https://herculepanel.github.io/HPanelRadio/">باز کردن Radio</a>
-</div>
-<section class="features">
-<div class="feat"><h3>یک ورود</h3><p>ورود از Vault بین همه بخش‌های HPanel مشترک است.</p></div>
-<div class="feat"><h3>بدون ورود دوباره</h3><p>Dashboard و Radio توکن را خودشان از اطلاعات ورود می‌گیرند.</p></div>
-<div class="feat"><h3>حساب مدیر</h3><p>ورود با پسوند مدیریتی امکانات مدیریتی اضافی را فعال می‌کند.</p></div>
-</section>
-<footer>HerculePanel © 2026</footer>
-</div>
-<script>
-const AUTH_KEY="hpanel_auth";
-function auth(){try{return JSON.parse(localStorage.getItem(AUTH_KEY)||"null")}catch{return null}}
-function refreshMain(){
- const a=auth(), ok=!!(a&&a.loggedIn);
- document.querySelectorAll(".locked").forEach(e=>e.classList.toggle("show",ok));
- document.getElementById("lockedBox").classList.toggle("show",!ok);
- document.getElementById("welcomeBox").classList.toggle("show",ok);
- document.getElementById("vaultButton").textContent=ok?"ورود به Vault":"ورود به گاوصندوق";
- document.getElementById("intro").textContent=ok?"ورود موفق است. Dashboard و Radio آماده استفاده هستند.":"برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.";
- const s=document.getElementById("loginState");s.classList.toggle("show",ok);s.textContent=ok?(a.admin?"مدیر":"وارد شده"):"";
- if(ok)document.getElementById("welcomeText").textContent=a.admin?"شما به عنوان مدیر وارد شده‌اید.":"شما به عنوان کاربر وارد شده‌اید.";
+:root{
+  --bg:#0b0a09;
+  --text:#fff6ea;
+  --muted:#c3b09a;
+  --line:rgba(255,186,92,.22);
+  --gold:#ffb43a;
+  --mint:#3ee39a;
+  --ink:#140f0a;
 }
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+}
+
+body{
+  min-height:100vh;
+  font-family:Lalezar,Tahoma,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(
+      circle at 88% -10%,
+      rgba(255,180,58,.22),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(62,227,154,.14),
+      transparent 28%
+    ),
+    linear-gradient(180deg,#120e0b,#070605);
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.wrap{
+  width:min(1120px,calc(100% - 32px));
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 0;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-size:23px;
+  direction:ltr;
+}
+
+.logo span,
+.gold{
+  color:var(--gold);
+}
+
+nav{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+  color:var(--muted);
+}
+
+nav a{
+  padding:7px 10px;
+  border-radius:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+}
+
+nav i{
+  font-size:15px;
+}
+
+/* HERO */
+
+.hero{
+  padding:55px 0 25px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:22px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(34px,5vw,54px);
+  margin:0 0 14px;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.8;
+  margin:0 0 25px;
+}
+
+.cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* BUTTONS */
+
+.btn{
+  border:0;
+  cursor:pointer;
+  border-radius:16px;
+  padding:10px 15px;
+  font:15px Lalezar;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  box-shadow:0 6px 0 rgba(0,0,0,.35);
+}
+
+.btn i{
+  font-size:16px;
+}
+
+.goldbtn{
+  background:linear-gradient(180deg,#ffd27a,#ff9d1f);
+  color:var(--ink);
+}
+
+.mintbtn{
+  background:linear-gradient(180deg,#6af3b8,#17c77a);
+  color:#042016;
+}
+
+.ghost{
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+
+/* PANELS */
+
+.panel{
+  padding:18px;
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.095),
+      rgba(255,180,58,.065),
+      rgba(255,255,255,.025)
+    );
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.panel h2{
+  margin:0 0 8px;
+}
+
+.panel-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.panel-title i{
+  color:var(--gold);
+  font-size:20px;
+}
+
+.panel p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:18px;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.stat{
+  padding:14px 10px;
+  border-radius:14px;
+  background:rgba(0,0,0,.28);
+  text-align:center;
+}
+
+.stat i{
+  display:block;
+  color:var(--gold);
+  font-size:20px;
+  margin-bottom:4px;
+}
+
+.stat b{
+  display:block;
+  font-size:22px;
+  color:var(--gold);
+}
+
+.stat span{
+  color:var(--muted);
+}
+
+/* FEATURES */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  padding:28px 0 70px;
+}
+
+.feat{
+  padding:18px;
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+}
+
+.feat-icon{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+  color:var(--gold);
+  background:rgba(255,180,58,.08);
+  border:1px solid rgba(255,180,58,.14);
+  font-size:20px;
+}
+
+.feat h3{
+  margin:0 0 8px;
+}
+
+.feat p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* AUTH */
+
+.locked{
+  display:none;
+}
+
+.locked.show{
+  display:inline-flex;
+}
+
+.logged{
+  display:none;
+}
+
+.logged.show{
+  display:inline-flex;
+}
+
+.authbox{
+  display:none;
+  margin:30px 0;
+  padding:25px;
+  text-align:center;
+}
+
+.authbox.show{
+  display:block;
+}
+
+.authbox h2{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+}
+
+.authbox h2 i{
+  color:var(--gold);
+}
+
+.authbox p{
+  color:var(--muted);
+  font-size:19px;
+}
+
+/* UPDATE */
+
+.update{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-bottom:10px;
+  color:var(--gold);
+  font-size:18px;
+}
+
+.update i{
+  font-size:17px;
+}
+
+.update b{
+  color:var(--gold);
+}
+
+/* FOOTER */
+
+.footer{
+  position:relative;
+  margin-top:10px;
+  padding:26px 20px 30px;
+  text-align:center;
+
+  border:1px solid var(--line);
+  border-radius:22px 22px 0 0;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.065),
+      rgba(255,180,58,.035),
+      rgba(255,255,255,.018)
+    );
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 -15px 45px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.06);
+
+  color:#8d7c69;
+}
+
+.footer::before{
+  content:"";
+  position:absolute;
+  top:-1px;
+  left:18%;
+  right:18%;
+  height:1px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,180,58,.45),
+    transparent
+  );
+}
+
+.footer-brand{
+  font-size:21px;
+  margin-bottom:5px;
+  color:var(--text);
+  direction:ltr;
+}
+
+.footer-brand .gold{
+  color:var(--gold);
+}
+
+.footer-text{
+  color:#7a6b5a;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.footer-version{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:9px;
+  padding:4px 11px;
+  border-radius:10px;
+  border:1px solid rgba(255,180,58,.16);
+  background:rgba(255,180,58,.045);
+  color:var(--gold);
+  font-size:13px;
+  direction:ltr;
+}
+
+.footer-version i{
+  font-size:12px;
+}
+
+/* TRANSITIONS */
+
+button,
+a,
+.panel,
+.feat,
+.stat{
+  transition:
+    transform .5s cubic-bezier(.22,1,.36,1),
+    opacity .5s ease,
+    border-color .5s ease,
+    box-shadow .5s ease,
+    background .5s ease;
+}
+
+.btn:hover,
+a:hover{
+  transform:translateY(-3px);
+}
+
+.hero,
+.panel,
+.feat,
+.stat{
+  animation:softIn .7s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes softIn{
+  from{
+    opacity:0;
+    transform:translateY(14px) scale(.985);
+  }
+
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .hero,
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:35px;
+  }
+
+  header{
+    justify-content:center;
+    text-align:center;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .footer{
+    border-radius:20px 20px 0 0;
+  }
+}
+
+@media(max-width:500px){
+
+  .wrap{
+    width:min(100% - 20px,1120px);
+  }
+
+  header{
+    padding-top:14px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  nav{
+    gap:4px;
+  }
+
+  nav a{
+    padding:6px 8px;
+    font-size:14px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .cta{
+    flex-direction:column;
+  }
+
+  .cta .btn{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header>
+
+<div class="logo" dir="ltr">
+  <span class="gold">H</span><span class="gold">P</span>anel
+</div>
+
+<nav>
+
+<a href="#home">
+  <i class="bi bi-house"></i>
+  خانه
+</a>
+
+<a
+  id="dashLink"
+  class="locked"
+  href="https://herculepanel.github.io/Dashboard/"
+>
+  <i class="bi bi-speedometer2"></i>
+  داشبورد
+</a>
+
+<a
+  id="radioLink"
+  class="locked"
+  href="https://herculepanel.github.io/HPanelRadio/"
+>
+  <i class="bi bi-broadcast"></i>
+  رادیو
+</a>
+
+<a
+  id="vaultLink"
+  href="https://herculepanel.github.io/vault/"
+>
+  <i class="bi bi-safe2"></i>
+  گاوصندوق
+</a>
+
+<span id="loginState" class="logged"></span>
+
+</nav>
+
+</header>
+
+
+<section class="hero" id="home">
+
+<div>
+
+<div class="update">
+  <i class="bi bi-stars"></i>
+  <span>آپدیت جدید:</span>
+  <b>v1.3</b>
+</div>
+
+<h1>تونل بازی، بدون دردسر</h1>
+
+<p id="intro">
+  برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.
+</p>
+
+<div class="cta">
+
+<a
+  id="vaultButton"
+  class="btn goldbtn"
+  href="https://herculepanel.github.io/vault/"
+>
+  <i class="bi bi-unlock"></i>
+  ورود به گاوصندوق
+</a>
+
+<a
+  id="dashButton"
+  class="btn ghost locked"
+  href="https://herculepanel.github.io/Dashboard/"
+>
+  <i class="bi bi-speedometer2"></i>
+  داشبورد
+</a>
+
+<a
+  id="radioButton"
+  class="btn ghost locked"
+  href="https://herculepanel.github.io/HPanelRadio/"
+>
+  <i class="bi bi-broadcast"></i>
+  رادیو
+</a>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h2 class="panel-title">
+  <i class="bi bi-hdd-rack"></i>
+  <span>
+    <span class="gold">H</span><span class="gold">P</span>anel
+  </span>
+</h2>
+
+<p>
+  پنل شخصی مدیریت سرور و رادیوی L.A. Crimes.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+  <i class="bi bi-grid-3x3-gap"></i>
+  <b>۴</b>
+  <span>اسلات سرور</span>
+</div>
+
+<div class="stat">
+  <i class="bi bi-map"></i>
+  <b>۹</b>
+  <span>نقشه</span>
+</div>
+
+<div class="stat">
+  <i class="bi bi-person-check"></i>
+  <b>۱</b>
+  <span>ورود مشترک</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div id="lockedBox" class="panel authbox show">
+
+<h2>
+  <i class="bi bi-lock"></i>
+  ورود لازم است
+</h2>
+
+<p>
+  برای باز شدن HPanel Dashboard و HPanel Radio
+  ابتدا وارد Vault شوید.
+</p>
+
+<a
+  class="btn goldbtn"
+  href="https://herculepanel.github.io/vault/"
+>
+  <i class="bi bi-safe2"></i>
+  رفتن به Vault
+</a>
+
+</div>
+
+
+<div id="welcomeBox" class="panel authbox">
+
+<h2>
+  <i class="bi bi-person-check"></i>
+  خوش آمدید
+</h2>
+
+<p id="welcomeText"></p>
+
+<a
+  class="btn mintbtn"
+  href="https://herculepanel.github.io/Dashboard/"
+>
+  <i class="bi bi-speedometer2"></i>
+  باز کردن Dashboard
+</a>
+
+<a
+  class="btn ghost"
+  href="https://herculepanel.github.io/HPanelRadio/"
+>
+  <i class="bi bi-broadcast"></i>
+  باز کردن Radio
+</a>
+
+</div>
+
+
+<section class="features">
+
+<div class="feat">
+
+<div class="feat-icon">
+  <i class="bi bi-box-arrow-in-right"></i>
+</div>
+
+<h3>یک ورود</h3>
+
+<p>
+  ورود از Vault بین همه بخش‌های HPanel مشترک است.
+</p>
+
+</div>
+
+
+<div class="feat">
+
+<div class="feat-icon">
+  <i class="bi bi-arrow-repeat"></i>
+</div>
+
+<h3>بدون ورود دوباره</h3>
+
+<p>
+  Dashboard و Radio توکن را خودشان از اطلاعات ورود می‌گیرند.
+</p>
+
+</div>
+
+
+<div class="feat">
+
+<div class="feat-icon">
+  <i class="bi bi-shield-lock"></i>
+</div>
+
+<h3>حساب مدیر</h3>
+
+<p>
+  ورود با پسوند مدیریتی امکانات مدیریتی اضافی را فعال می‌کند.
+</p>
+
+</div>
+
+</section>
+
+
+<footer class="footer">
+
+<div class="footer-brand" dir="ltr">
+  <span class="gold">H</span><span class="gold">P</span>anel
+</div>
+
+<div class="footer-text">
+  پنل شخصی مدیریت سرور و رادیو
+  <br>
+  ساخته شده برای پروژه‌های HPanel
+</div>
+
+<div class="footer-version" dir="ltr">
+  <i class="bi bi-tag"></i>
+  HPanel v1.3
+  <i class="bi bi-c-circle"></i>
+  2026
+</div>
+
+</footer>
+
+</div>
+
+
+<script>
+
+const AUTH_KEY="hpanel_auth";
+
+function auth(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(AUTH_KEY)||"null"
+    );
+
+  }catch{
+
+    return null;
+
+  }
+
+}
+
+
+function refreshMain(){
+
+  const a=auth();
+
+  const ok=!!(
+    a &&
+    a.loggedIn
+  );
+
+
+  document
+    .querySelectorAll(".locked")
+    .forEach(e=>{
+      e.classList.toggle(
+        "show",
+        ok
+      );
+    });
+
+
+  document
+    .getElementById("lockedBox")
+    .classList.toggle(
+      "show",
+      !ok
+    );
+
+
+  document
+    .getElementById("welcomeBox")
+    .classList.toggle(
+      "show",
+      ok
+    );
+
+
+  const vaultButton=
+    document.getElementById(
+      "vaultButton"
+    );
+
+
+  vaultButton.innerHTML=ok
+    ?'<i class="bi bi-safe2"></i> ورود به Vault'
+    :'<i class="bi bi-unlock"></i> ورود به گاوصندوق';
+
+
+  document
+    .getElementById("intro")
+    .textContent=ok
+      ?"ورود موفق است. Dashboard و Radio آماده استفاده هستند."
+      :"برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.";
+
+
+  const s=
+    document.getElementById(
+      "loginState"
+    );
+
+
+  s.classList.toggle(
+    "show",
+    ok
+  );
+
+
+  s.innerHTML=ok
+    ?(
+      a.admin
+        ?'<i class="bi bi-shield-lock"></i> مدیر'
+        :'<i class="bi bi-person-check"></i> وارد شده'
+    )
+    :"";
+
+
+  if(ok){
+
+    document
+      .getElementById(
+        "welcomeText"
+      )
+      .textContent=
+        a.admin
+          ?"شما به عنوان مدیر وارد شده‌اید."
+          :"شما به عنوان کاربر وارد شده‌اید.";
+
+  }
+
+}
+
+
 refreshMain();
-window.addEventListener("storage",refreshMain);
+
+
+window.addEventListener(
+  "storage",
+  refreshMain
+);
+
 </script>
-</body></html>
+
+</body>
+ </html>
