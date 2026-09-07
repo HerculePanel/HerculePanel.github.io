@@ -1,196 +1,77 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اچ‌پنل | HPanel</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b0a09;
-      --text: #fff6ea;
-      --muted: #c3b09a;
-      --line: rgba(255, 186, 92, .22);
-      --gold: #ffb43a;
-      --mint: #3ee39a;
-      --ink: #140f0a;
-      --shadow: 0 28px 70px rgba(0,0,0,.55);
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; }
-    body {
-      min-height: 100vh;
-      font-family: Lalezar, Tahoma, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 88% -10%, rgba(255,180,58,.18), transparent 32%),
-        radial-gradient(circle at 8% 12%, rgba(62,227,154,.10), transparent 28%),
-        linear-gradient(180deg, #120e0b, #070605);
-    }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1120px, calc(100% - 32px)); margin: auto; }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .logo { font-weight: 900; letter-spacing: .04em; font-size: 26px; }
-    .logo span { color: var(--gold); }
-    nav { display: flex; gap: 14px; color: var(--muted); font-size: 18px; flex-wrap: wrap; align-items: center; }
-    .badge {
-      display: none;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: rgba(62,227,154,.16);
-      color: var(--mint);
-      font-size: 14px;
-    }
-    .badge.on { display: inline-block; }
-    .hero {
-      padding: 72px 0 36px;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 28px;
-      align-items: center;
-    }
-    .hero h1 { margin: 0 0 14px; font-size: clamp(34px, 6vw, 64px); line-height: 1.15; }
-    .hero p { margin: 0 0 26px; color: var(--muted); font-size: 20px; line-height: 1.9; }
-    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn {
-      border: 0; cursor: pointer; border-radius: 16px; padding: 13px 18px;
-      font-size: 18px; font-family: inherit;
-      box-shadow: 0 6px 0 rgba(0,0,0,.35);
-      display: inline-block;
-    }
-    .btn-gold { background: linear-gradient(180deg, #ffd27a, #ff9d1f); color: var(--ink); }
-    .btn-mint { background: linear-gradient(180deg, #6af3b8, #17c77a); color: #042016; }
-    .btn-ghost { background: rgba(255,255,255,.06); color: var(--text); border: 1px solid var(--line); box-shadow: none; }
-    .panel {
-      padding: 22px;
-      border-radius: 28px;
-      border: 1px solid var(--line);
-      background: linear-gradient(165deg, rgba(255,180,58,.12), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-    }
-    .tag {
-      display: inline-block; margin-bottom: 12px; padding: 6px 10px;
-      border-radius: 999px; background: rgba(62,227,154,.14); color: var(--mint); font-size: 14px;
-    }
-    .panel h2 { margin: 0 0 8px; font-size: 28px; }
-    .panel p { margin: 0 0 18px; color: var(--muted); line-height: 1.8; font-size: 18px; }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .stat { padding: 12px 10px; border-radius: 14px; background: rgba(0,0,0,.28); text-align: center; }
-    .stat b { display: block; font-size: 22px; color: var(--gold); }
-    .stat span { color: var(--muted); font-size: 14px; }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      padding: 28px 0 70px;
-    }
-    .feat {
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-    }
-    .feat h3 { margin: 0 0 8px; font-size: 22px; }
-    .feat p { margin: 0; color: var(--muted); line-height: 1.8; font-size: 16px; }
-    footer {
-      padding: 24px 0 40px;
-      color: #7a6b5a;
-      font-size: 14px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-    footer span { color: var(--gold); }
-    @media (max-width: 860px) {
-      .hero, .features, .stats { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>اچ‌پنل | HPanel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0a09;--text:#fff6ea;--muted:#c3b09a;--line:rgba(255,186,92,.22);--gold:#ffb43a;--mint:#3ee39a;--ink:#140f0a}
+*{box-sizing:border-box}html,body{margin:0}body{min-height:100vh;font-family:Lalezar,Tahoma,sans-serif;color:var(--text);background:radial-gradient(circle at 88% -10%,rgba(255,180,58,.18),transparent 32%),radial-gradient(circle at 8% 12%,rgba(62,227,154,.1),transparent 28%),linear-gradient(180deg,#120e0b,#070605)}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px;flex-wrap:wrap}.logo{font-size:26px}.logo span,.gold{color:var(--gold)}nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted)}nav a{padding:7px 10px;border-radius:12px}nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}.hero{padding:70px 0 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}.hero h1{font-size:clamp(38px,6vw,64px);margin:0 0 14px}.hero p{color:var(--muted);font-size:20px;line-height:1.9;margin:0 0 25px}.cta{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;cursor:pointer;border-radius:16px;padding:13px 18px;font:18px Lalezar;display:inline-block;box-shadow:0 6px 0 rgba(0,0,0,.35)}.goldbtn{background:linear-gradient(180deg,#ffd27a,#ff9d1f);color:var(--ink)}.mintbtn{background:linear-gradient(180deg,#6af3b8,#17c77a);color:#042016}.ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--line);box-shadow:none}.panel{padding:22px;border-radius:28px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,180,58,.12),rgba(255,255,255,.03));box-shadow:0 28px 70px rgba(0,0,0,.55)}.panel h2{margin:0 0 8px}.panel p{color:var(--muted);line-height:1.8;font-size:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:12px;border-radius:14px;background:rgba(0,0,0,.28);text-align:center}.stat b{display:block;font-size:22px;color:var(--gold)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 70px}.feat{padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.035)}.feat h3{margin:0 0 8px}.feat p{margin:0;color:var(--muted);line-height:1.8}.locked{display:none}.locked.show{display:block}.logged{display:none}.logged.show{display:inline-block}.authbox{display:none;margin:30px 0;padding:25px;text-align:center}.authbox.show{display:block}.authbox p{color:var(--muted);font-size:19px}.footer{padding:24px 0 40px;text-align:center;color:#7a6b5a;border-top:1px solid rgba(255,255,255,.06)}@media(max-width:850px){.hero,.features{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo"><span>HP</span>anel</div>
-      <nav>
-        <span id="verifyBadge" class="badge">تأیید شده</span>
-        <a href="#home">خانه</a>
-        <a href="#server">سرور رایگان</a>
-        <a href="#radio">رادیو</a>
-        <a href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
-        <a id="signInLink" href="https://herculepanel.github.io/vault/">ورود</a>
-      </nav>
-    </header>
-
-    <section class="hero" id="home">
-      <div>
-        <h1>تونل بازی، بدون دردسر</h1>
-        <p>اچ‌پنل پنل کنترل سرورهای لک است. اول وارد گاوصندوق شو تا داشبورد و رادیو خودشان باز شوند.</p>
-        <div class="cta">
-          <a class="btn btn-gold" id="heroSign" href="https://herculepanel.github.io/vault/">ورود به گاوصندوق</a>
-          <a class="btn btn-ghost" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
-          <a class="btn btn-ghost" href="https://herculepanel.github.io/HPanelRadio/">رادیو لک</a>
-        </div>
-      </div>
-      <div class="panel" id="server">
-        <div class="tag">رایگان</div>
-        <h2>سرور لک</h2>
-        <p>چهار اسلات آماده، انتخاب نقشه رسمی، و روشن/خاموش از مرورگر. برای شروع وارد شو.</p>
-        <div class="stats">
-          <div class="stat"><b>۴</b><span>اسلات سرور</span></div>
-          <div class="stat"><b>۸</b><span>نقشه رسمی</span></div>
-          <div class="stat"><b>۵</b><span>ساعت تا پایان رانر</span></div>
-        </div>
-        <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/Dashboard/">رفتن به کنترل‌پنل</a>
-      </div>
-    </section>
-
-    <div class="panel" id="radio">
-      <div class="tag">رایگان</div>
-      <h2>رادیو لک</h2>
-      <p>لینک‌های عمومی MP3 برای رادیوی ماشین در بازی. آهنگ اضافه کن و لینک را در بازی بچسبان.</p>
-      <div class="stats">
-        <div class="stat"><b>MP3</b><span>آپلود در ریپو</span></div>
-        <div class="stat"><b>لینک</b><span>آماده برای بازی</span></div>
-        <div class="stat"><b>گیست</b><span>فهرست آهنگ‌ها</span></div>
-      </div>
-      <a class="btn btn-mint" style="width:100%;margin-top:16px;text-align:center" href="https://herculepanel.github.io/HPanelRadio/">رفتن به رادیو</a>
-    </div>
-
-    <section class="features">
-      <div class="feat">
-        <h3>یک ورود</h3>
-        <p>با رمز گاوصندوق وارد شو. توکن داشبورد و رادیو ذخیره می‌شود.</p>
-      </div>
-      <div class="feat">
-        <h3>بدون پورت‌فوروارد</h3>
-        <p>اتصال سرور از طریق تونل است. روتر را دست نزن.</p>
-      </div>
-      <div class="feat">
-        <h3>کنترل از مرورگر</h3>
-        <p>سرور، نقشه و رادیو همه از همین سایت مدیریت می‌شوند.</p>
-      </div>
-    </section>
-  </div>
-  <footer><span>H</span>ercule<span>P</span>anel © 2026</footer>
+<div class="wrap">
+<header>
+<div class="logo"><span>HP</span>anel</div>
+<nav>
+<a href="#home">خانه</a>
+<a id="dashLink" class="locked" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
+<a id="radioLink" class="locked" href="https://herculepanel.github.io/HPanelRadio/">رادیو</a>
+<a id="vaultLink" href="https://herculepanel.github.io/vault/">گاوصندوق</a>
+<span id="loginState" class="logged"></span>
+</nav>
+</header>
+<section class="hero" id="home">
+<div>
+<h1>تونل بازی، بدون دردسر</h1>
+<p id="intro">برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.</p>
+<div class="cta">
+<a id="vaultButton" class="btn goldbtn" href="https://herculepanel.github.io/vault/">ورود به گاوصندوق</a>
+<a id="dashButton" class="btn ghost locked" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
+<a id="radioButton" class="btn ghost locked" href="https://herculepanel.github.io/HPanelRadio/">رادیو</a>
+</div>
+</div>
+<div class="panel">
+<h2>HPanel</h2>
+<p>پنل شخصی مدیریت سرور و رادیوی L.A. Crimes.</p>
+<div class="stats"><div class="stat"><b>۴</b><span>اسلات سرور</span></div><div class="stat"><b>۹</b><span>نقشه</span></div><div class="stat"><b>۱</b><span>ورود مشترک</span></div></div>
+</div>
+</section>
+<div id="lockedBox" class="panel authbox show">
+<h2>ورود لازم است</h2>
+<p>برای باز شدن HPanel Dashboard و HPanel Radio ابتدا وارد Vault شوید.</p>
+<a class="btn goldbtn" href="https://herculepanel.github.io/vault/">رفتن به Vault</a>
+</div>
+<div id="welcomeBox" class="panel authbox">
+<h2>خوش آمدید</h2>
+<p id="welcomeText"></p>
+<a class="btn mintbtn" href="https://herculepanel.github.io/Dashboard/">باز کردن Dashboard</a>
+<a class="btn ghost" href="https://herculepanel.github.io/HPanelRadio/">باز کردن Radio</a>
+</div>
+<section class="features">
+<div class="feat"><h3>یک ورود</h3><p>ورود از Vault بین همه بخش‌های HPanel مشترک است.</p></div>
+<div class="feat"><h3>بدون ورود دوباره</h3><p>Dashboard و Radio توکن را خودشان از اطلاعات ورود می‌گیرند.</p></div>
+<div class="feat"><h3>حساب مدیر</h3><p>ورود با پسوند مدیریتی امکانات مدیریتی اضافی را فعال می‌کند.</p></div>
+</section>
+<footer>HerculePanel © 2026</footer>
+</div>
 <script>
-(function () {
-  const ok = localStorage.getItem("hpanel_verified") === "1";
-  const badge = document.getElementById("verifyBadge");
-  const sign = document.getElementById("signInLink");
-  const hero = document.getElementById("heroSign");
-  if (ok) {
-    badge.classList.add("on");
-    sign.textContent = "گاوصندوق";
-    hero.textContent = "حساب تأیید شده";
-  }
-})();
+const AUTH_KEY="hpanel_auth";
+function auth(){try{return JSON.parse(localStorage.getItem(AUTH_KEY)||"null")}catch{return null}}
+function refreshMain(){
+ const a=auth(), ok=!!(a&&a.loggedIn);
+ document.querySelectorAll(".locked").forEach(e=>e.classList.toggle("show",ok));
+ document.getElementById("lockedBox").classList.toggle("show",!ok);
+ document.getElementById("welcomeBox").classList.toggle("show",ok);
+ document.getElementById("vaultButton").textContent=ok?"ورود به Vault":"ورود به گاوصندوق";
+ document.getElementById("intro").textContent=ok?"ورود موفق است. Dashboard و Radio آماده استفاده هستند.":"برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.";
+ const s=document.getElementById("loginState");s.classList.toggle("show",ok);s.textContent=ok?(a.admin?"مدیر":"وارد شده"):"";
+ if(ok)document.getElementById("welcomeText").textContent=a.admin?"شما به عنوان مدیر وارد شده‌اید.":"شما به عنوان کاربر وارد شده‌اید.";
+}
+refreshMain();
+window.addEventListener("storage",refreshMain);
 </script>
-</body>
-        </html>
+</body></html>
