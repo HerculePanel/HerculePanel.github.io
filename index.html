@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>اچ‌پنل | HPanel</title>
+<title>اچ‌پنل | HerculePanel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0b0a09;--text:#fff6ea;--muted:#c3b09a;--line:rgba(255,186,92,.22);--gold:#ffb43a;--mint:#3ee39a;--ink:#140f0a}
-*{box-sizing:border-box}html,body{margin:0}body{min-height:100vh;font-family:Lalezar,Tahoma,sans-serif;color:var(--text);background:radial-gradient(circle at 88% -10%,rgba(255,180,58,.18),transparent 32%),radial-gradient(circle at 8% 12%,rgba(62,227,154,.1),transparent 28%),linear-gradient(180deg,#120e0b,#070605)}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px;flex-wrap:wrap}.logo{font-size:23px}.logo span,.gold{color:var(--gold)}nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted)}nav a{padding:6px 9px;border-radius:12px}nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}.hero{padding:55px 0 25px;display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center}.hero h1{font-size:clamp(34px,5vw,54px);margin:0 0 14px}.hero p{color:var(--muted);font-size:17px;line-height:1.8;margin:0 0 25px}.cta{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;cursor:pointer;border-radius:16px;padding:10px 15px;font:15px Lalezar;display:inline-block;box-shadow:0 6px 0 rgba(0,0,0,.35)}.goldbtn{background:linear-gradient(180deg,#ffd27a,#ff9d1f);color:var(--ink)}.mintbtn{background:linear-gradient(180deg,#6af3b8,#17c77a);color:#042016}.ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--line);box-shadow:none}.panel{padding:18px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,180,58,.12),rgba(255,255,255,.03));box-shadow:0 28px 70px rgba(0,0,0,.55)}.panel h2{margin:0 0 8px}.panel p{color:var(--muted);line-height:1.8;font-size:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:12px;border-radius:14px;background:rgba(0,0,0,.28);text-align:center}.stat b{display:block;font-size:22px;color:var(--gold)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 70px}.feat{padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.035)}.feat h3{margin:0 0 8px}.feat p{margin:0;color:var(--muted);line-height:1.8}.locked{display:none}.locked.show{display:block}.logged{display:none}.logged.show{display:inline-block}.authbox{display:none;margin:30px 0;padding:25px;text-align:center}.authbox.show{display:block}.authbox p{color:var(--muted);font-size:19px}.footer{padding:24px 0 40px;text-align:center;color:#7a6b5a;border-top:1px solid rgba(255,255,255,.06)}@media(max-width:850px){.hero,.features{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
-.update{display:inline-flex;gap:6px;margin-bottom:10px;color:var(--gold);font-size:18px}.update b{color:var(--gold)}button,a,.panel,.feat,.stat{transition:transform .18s ease,opacity .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}.btn:hover,a:hover{transform:translateY(-1px)}</style>
+*{box-sizing:border-box}html,body{margin:0}body{min-height:100vh;font-family:Lalezar,Tahoma,sans-serif;color:var(--text);background:radial-gradient(circle at 88% -10%,rgba(255,180,58,.18),transparent 32%),radial-gradient(circle at 8% 12%,rgba(62,227,154,.1),transparent 28%),linear-gradient(180deg,#120e0b,#070605)}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px;flex-wrap:wrap}.logo{font-size:23px}.logo span,.gold{color:var(--gold)}nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted)}nav a{padding:6px 9px;border-radius:12px}nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}.hero{padding:55px 0 25px;display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center;animation:fadeIn .8s ease}.hero h1{font-size:clamp(34px,5vw,54px);margin:0 0 14px}.hero p{color:var(--muted);font-size:17px;line-height:1.8;margin:0 0 25px}.cta{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;cursor:pointer;border-radius:16px;padding:10px 15px;font:15px Lalezar;display:inline-block;box-shadow:0 6px 0 rgba(0,0,0,.35)}.goldbtn{background:linear-gradient(180deg,#ffd27a,#ff9d1f);color:var(--ink)}.mintbtn{background:linear-gradient(180deg,#6af3b8,#17c77a);color:#042016}.ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--line);box-shadow:none}.panel{padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.05);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 28px 70px rgba(0,0,0,.55)}.panel h2{margin:0 0 8px}.panel p{color:var(--muted);line-height:1.8;font-size:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:12px;border-radius:14px;background:rgba(0,0,0,.28);text-align:center}.stat b{display:block;font-size:22px;color:var(--gold)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:28px 0 70px}.feat{padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.05);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);animation:fadeIn .8s ease .2s both}.feat h3{margin:0 0 8px}.feat p{margin:0;color:var(--muted);line-height:1.8}.locked{display:none}.locked.show{display:block}.logged{display:none}.logged.show{display:inline-block}.authbox{display:none;margin:30px 0;padding:25px;text-align:center}.authbox.show{display:block}.authbox p{color:var(--muted);font-size:19px}.footer{padding:24px 0 40px;text-align:center;color:#7a6b5a;border-top:1px solid rgba(255,255,255,.06)}@media(max-width:850px){.hero,.features{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+.update{display:inline-flex;gap:6px;margin-bottom:10px;color:var(--gold);font-size:18px}.update b{color:var(--gold)}button,a,.panel,.feat,.stat{transition:transform .18s ease,opacity .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}.btn:hover,a:hover{transform:translateY(-1px)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
 </head>
 <body>
 <div class="wrap">
 <header>
-<div class="logo"><span class="gold">H</span>anel <span class="gold">P</span>anel</div>
+<div class="logo"><span class="gold">H</span>ercule<span class="gold">P</span>anel</div>
 <nav>
 <a href="#home">خانه</a>
 <a id="dashLink" class="locked" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
@@ -27,7 +29,7 @@
 <section class="hero" id="home">
 <div>
 <div class="update"><span>آپدیت جدید: </span><b>v1.3</b></div><h1>تونل بازی، بدون دردسر</h1>
-<p id="intro">برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.</p>
+<p id="intro">برای استفاده از HerculePanel ابتدا وارد گاوصندوق شوید.</p>
 <div class="cta">
 <a id="vaultButton" class="btn goldbtn" href="https://herculepanel.github.io/vault/">ورود به گاوصندوق</a>
 <a id="dashButton" class="btn ghost locked" href="https://herculepanel.github.io/Dashboard/">داشبورد</a>
@@ -35,14 +37,14 @@
 </div>
 </div>
 <div class="panel">
-<h2>HPanel</h2>
+<h2>HerculePanel</h2>
 <p>پنل شخصی مدیریت سرور و رادیوی L.A. Crimes.</p>
 <div class="stats"><div class="stat"><b>۴</b><span>اسلات سرور</span></div><div class="stat"><b>۹</b><span>نقشه</span></div><div class="stat"><b>۱</b><span>ورود مشترک</span></div></div>
 </div>
 </section>
 <div id="lockedBox" class="panel authbox show">
 <h2>ورود لازم است</h2>
-<p>برای باز شدن HPanel Dashboard و HPanel Radio ابتدا وارد Vault شوید.</p>
+<p>برای باز شدن HerculePanel Dashboard و HerculePanel Radio ابتدا وارد Vault شوید.</p>
 <a class="btn goldbtn" href="https://herculepanel.github.io/vault/">رفتن به Vault</a>
 </div>
 <div id="welcomeBox" class="panel authbox">
@@ -52,7 +54,7 @@
 <a class="btn ghost" href="https://herculepanel.github.io/HPanelRadio/">باز کردن Radio</a>
 </div>
 <section class="features">
-<div class="feat"><h3>یک ورود</h3><p>ورود از Vault بین همه بخش‌های HPanel مشترک است.</p></div>
+<div class="feat"><h3>یک ورود</h3><p>ورود از Vault بین همه بخش‌های HerculePanel مشترک است.</p></div>
 <div class="feat"><h3>بدون ورود دوباره</h3><p>Dashboard و Radio توکن را خودشان از اطلاعات ورود می‌گیرند.</p></div>
 <div class="feat"><h3>حساب مدیر</h3><p>ورود با پسوند مدیریتی امکانات مدیریتی اضافی را فعال می‌کند.</p></div>
 </section>
@@ -67,7 +69,7 @@ function refreshMain(){
  document.getElementById("lockedBox").classList.toggle("show",!ok);
  document.getElementById("welcomeBox").classList.toggle("show",ok);
  document.getElementById("vaultButton").textContent=ok?"ورود به Vault":"ورود به گاوصندوق";
- document.getElementById("intro").textContent=ok?"ورود موفق است. Dashboard و Radio آماده استفاده هستند.":"برای استفاده از HPanel ابتدا وارد گاوصندوق شوید.";
+ document.getElementById("intro").textContent=ok?"ورود موفق است. Dashboard و Radio آماده استفاده هستند.":"برای استفاده از HerculePanel ابتدا وارد گاوصندوق شوید.";
  const s=document.getElementById("loginState");s.classList.toggle("show",ok);s.textContent=ok?(a.admin?"مدیر":"وارد شده"):"";
  if(ok)document.getElementById("welcomeText").textContent=a.admin?"شما به عنوان مدیر وارد شده‌اید.":"شما به عنوان کاربر وارد شده‌اید.";
 }
