@@ -368,14 +368,17 @@ textarea:focus{
   line-height:1.8;
 }
 
+.ltr{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline-block;
+}
+
 .footer-brand{
   color:var(--text);
   font-size:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:7px;
+  display:block;
+  text-align:center;
 }
 
 .footer-link{
@@ -416,4 +419,4 @@ textarea:focus{
     width:calc(100% - 20px);
     font-size:11px;
   }
-}
+   }
